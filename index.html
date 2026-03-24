@@ -4223,20 +4223,23 @@ function renderGrpSongList(styles){
     <div class="grp-section-header ${sec.cls}">${sec.label}<span class="grp-section-count">${sec.songs.length}曲</span></div>
     ${sec.songs.map(({song:s,knowers})=>{
       const countClass=knowers.length>=totalMembers?'hot':knowers.length>=2?'warm':'cold';
-      const iWant=wantToSing.has(s.id);
-      const iKnow=bookmarks.some(b=>b.id===s.id);
       return `<div class="grp-song" onclick="detailHistory=['group'];go('song-detail',{songId:'${s.id}'})">
         <div class="grp-song-art" style="background:linear-gradient(135deg,${s.c[0]},${s.c[1]||s.c[0]})">
           <span class="material-symbols-rounded" style="font-size:20px;color:#fff;opacity:.6;font-variation-settings:'FILL' 1">${VIBE_ICON[s.v]||'music_note'}</span>
         </div>
         <div class="grp-song-body">
-          <div class="grp-song-title">${s.t}${iWant?' <span style="color:var(--accent);font-size:12px">🎤歌いたい</span>':''}</div>
+          <div class="grp-song-title">${s.t}</div>
           <div class="grp-song-artist">${s.a}</div>
           <div class="grp-song-knowers">
-            ${knowers.map(name=>{
-              const st=styles[name]||{emoji:'👤',color:'#888'};
-              const isMe=name===_userId;
-              return `<span class="grp-song-knower ${isMe?'is-me':''}" style="border-left:3px solid ${st.color}">${st.emoji} ${isMe?'自分':name}${isMe?(iKnow?' ✓知ってる':''):(iWant?' 🎤':'')}</span>`;
+            ${knowers.map(uid=>{
+              const member=_fbGroupMembers[uid]||{};
+              const displayName=member.name||uid;
+              const st=styles[uid]||{emoji:'👤',color:'#888'};
+              const isMe=uid===_userId;
+              const memberWants=(member.wantIds||[]).includes(s.id);
+              const label=isMe?'自分':displayName;
+              const status=memberWants?' 🎤歌いたい':' ✓知ってる';
+              return `<span class="grp-song-knower ${isMe?'is-me':''}" style="border-left:3px solid ${st.color}">${st.emoji} ${label}${status}</span>`;
             }).join('')}
           </div>
         </div>
