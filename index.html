@@ -103,8 +103,10 @@ img{display:block;max-width:100%}
 .bk-item.want-on{border-left:4px solid var(--accent);background:rgba(216,12,24,.04)}
 .bk-item.want-on .title{color:var(--accent)}
 /* KNOW = GREEN, WANT = RED in group */
-.grp-song-knower{background:rgba(52,168,83,.1);color:var(--growth);border-left-color:var(--growth)!important}
+.grp-song-knower{background:rgba(52,168,83,.1);color:#1B8A2E;border-left-color:var(--growth)!important}
+.grp-song-knower.is-me{background:rgba(52,168,83,.18);color:#1B8A2E}
 .grp-song-knower.wants{background:rgba(216,12,24,.1);color:var(--accent);border-left-color:var(--accent)!important}
+.grp-song-knower.wants.is-me{background:rgba(216,12,24,.18);color:var(--accent)}
 
 /* APP BRAND */
 .app-brand{font-size:11px;color:var(--accent-l);font-weight:700;letter-spacing:0.05em;margin-bottom:-2px}
@@ -177,18 +179,18 @@ img{display:block;max-width:100%}
 .grp-song-knower.is-me{background:rgba(0,210,160,.15);color:var(--growth)}
 .grp-song-knower.wants{background:rgba(216,12,24,.12);color:var(--accent);font-weight:700}
 .grp-song-count{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
-.grp-song-count.hot{background:var(--growth)}
-.grp-song-count.warm{background:var(--accent)}
-.grp-song-count.cold{background:var(--text-d)}
+.grp-song-count.hot{background:#1B8A2E}
+.grp-song-count.warm{background:#34A853}
+.grp-song-count.cold{background:#8BC99B}
 /* ムードフィルター */
 .grp-mood-filter{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:none}
 .grp-mood-filter::-webkit-scrollbar{display:none}
 .grp-mood-btn{padding:6px 14px;border-radius:16px;font-size:12px;font-weight:700;white-space:nowrap;background:var(--card);color:var(--text-s);transition:all .15s;flex-shrink:0}
 .grp-mood-btn.on{background:var(--accent);color:#fff}
 .grp-section-header{font-size:15px;font-weight:700;padding:14px 4px 8px;display:flex;align-items:center;gap:8px}
-.grp-section-header.hot{color:var(--growth)}
-.grp-section-header.warm{color:var(--accent)}
-.grp-section-header.cold{color:var(--text-s)}
+.grp-section-header.hot{color:#1B8A2E}
+.grp-section-header.warm{color:#34A853}
+.grp-section-header.cold{color:#8BC99B}
 .grp-section-count{font-size:12px;font-weight:400;color:var(--text-d)}
 .grp-empty-msg{text-align:center;padding:20px;color:var(--text-d);font-size:13px;line-height:1.6}
 /* レガシー維持 */
