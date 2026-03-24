@@ -4222,7 +4222,9 @@ function renderGrpSongList(styles){
   const flatList=[...allKnow,...someKnow,...oneOnly];
   wrap.innerHTML=flatList.map(({song:s,knowers})=>{
       const countClass=knowers.length>=totalMembers?'hot':knowers.length>=2?'warm':'cold';
-      return `<div class="grp-song" onclick="detailHistory=['group'];go('song-detail',{songId:'${s.id}'})">
+      const greenBg=countClass==='hot'?'rgba(27,138,46,.12)':countClass==='warm'?'rgba(52,168,83,.08)':'rgba(139,201,155,.05)';
+      const borderLeft=countClass==='hot'?'4px solid #1B8A2E':countClass==='warm'?'3px solid #34A853':'2px solid #8BC99B';
+      return `<div class="grp-song" style="background:${greenBg};border-left:${borderLeft}" onclick="detailHistory=['group'];go('song-detail',{songId:'${s.id}'})">
         <div class="grp-song-body">
           <div class="grp-song-title">${s.t}</div>
           <div class="grp-song-artist">${s.a}</div>
