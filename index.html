@@ -4227,9 +4227,6 @@ function renderGrpSongList(styles){
     ${sec.songs.map(({song:s,knowers})=>{
       const countClass=knowers.length>=totalMembers?'hot':knowers.length>=2?'warm':'cold';
       return `<div class="grp-song" onclick="detailHistory=['group'];go('song-detail',{songId:'${s.id}'})">
-        <div class="grp-song-art" style="background:linear-gradient(135deg,${s.c[0]},${s.c[1]||s.c[0]})">
-          <span class="material-symbols-rounded" style="font-size:20px;color:#fff;opacity:.6;font-variation-settings:'FILL' 1">${VIBE_ICON[s.v]||'music_note'}</span>
-        </div>
         <div class="grp-song-body">
           <div class="grp-song-title">${s.t}</div>
           <div class="grp-song-artist">${s.a}</div>
