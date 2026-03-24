@@ -95,11 +95,11 @@ img{display:block;max-width:100%}
 .bk-active-filters{padding:4px 16px;font-size:11px;color:var(--accent);min-height:18px}
 
 /* WANT-TO-SING TOGGLE */
-.want-btn{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:2px solid var(--text-d)}
-.want-btn:active{transform:scale(.9)}
-.want-btn.on{background:var(--accent);border-color:var(--accent)}
-.want-btn .material-symbols-rounded{font-size:20px;color:var(--text-d)}
-.want-btn.on .material-symbols-rounded{color:#fff;font-variation-settings:'FILL' 1}
+.want-btn{padding:6px 12px;border-radius:20px;display:flex;align-items:center;gap:4px;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:1.5px solid var(--text-d);font-family:inherit;font-size:11px;font-weight:700;color:var(--text-d);cursor:pointer}
+.want-btn:active{transform:scale(.95)}
+.want-btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.want-btn .material-symbols-rounded{font-size:16px}
+.want-btn.on .material-symbols-rounded{font-variation-settings:'FILL' 1}
 .bk-item.want-on{border-left:4px solid var(--accent);background:rgba(216,12,24,.04)}
 .bk-item.want-on .title{color:var(--accent)}
 
@@ -3583,9 +3583,9 @@ function renderBkList(){
     const dCol=dSing>=80?'var(--growth)':dSing>=65?'var(--accent)':'var(--cta)';
     const isWant=wantToSing.has(b.id);
     return `<div class="bk-item ${isWant?'want-on':''}" data-bid="${b.id}">
-      <div class="want-btn ${isWant?'on':''}" data-wid="${b.id}" title="\u6B4C\u3044\u305F\u3044">
-        <span class="material-symbols-rounded">${isWant?'check':'add'}</span>
-      </div>
+      <button class="want-btn ${isWant?'on':''}" data-wid="${b.id}">
+        <span class="material-symbols-rounded">${isWant?'check':'add'}</span>${isWant?'\u6B4C\u3044\u305F\u3044':'\u6B4C\u3044\u305F\u3044'}
+      </button>
       <div class="bk-info">
         <div class="title">${s.t}</div>
         <div class="artist">${s.a}</div>
