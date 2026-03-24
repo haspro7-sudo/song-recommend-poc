@@ -1205,14 +1205,6 @@ img{display:block;max-width:100%}
         <input id="loginName" class="login-input" type="text" placeholder="ニックネームでOK" autocomplete="off">
       </div>
       <div style="margin-bottom:16px">
-        <label class="login-label">性別</label>
-        <div class="login-chips" id="loginGender">
-          <button class="login-chip" data-val="male">男性</button>
-          <button class="login-chip" data-val="female">女性</button>
-          <button class="login-chip" data-val="other">その他</button>
-        </div>
-      </div>
-      <div style="margin-bottom:16px">
         <label class="login-label">年代</label>
         <div class="login-chips" id="loginAge">
           <button class="login-chip" data-val="10s">10代</button>
@@ -2664,7 +2656,6 @@ function doLogin(){
   const group=document.getElementById('loginGroup').value.trim();
   const err=document.getElementById('loginError');
   if(!name){err.textContent='名前を入力してください';return;}
-  if(!_userGender){err.textContent='性別を選択してください';return;}
   if(!_userAge){err.textContent='年代を選択してください';return;}
   err.textContent='';
   _userName=name;
