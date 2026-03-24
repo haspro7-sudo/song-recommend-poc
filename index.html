@@ -3606,7 +3606,7 @@ function renderBkList(){
       const sid=btn.dataset.wid;
       if(wantToSing.has(sid)){wantToSing.delete(sid);btn.classList.remove('on');toast('\u6B4C\u3044\u305F\u3044\u66F2\u304B\u3089\u524A\u9664');}
       else{wantToSing.add(sid);btn.classList.add('on');toast('\u{1F3A4} \u6B4C\u3044\u305F\u3044\u66F2\u306B\u8FFD\u52A0!');}
-      saveData();
+      saveData();fbSyncMyBookmarks();
     });
   });
   // Bind row tap
