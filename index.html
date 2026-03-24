@@ -94,14 +94,17 @@ img{display:block;max-width:100%}
 .bk-filter-chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .bk-active-filters{padding:4px 16px;font-size:11px;color:var(--accent);min-height:18px}
 
-/* WANT-TO-SING TOGGLE */
-.want-btn{padding:6px 12px;border-radius:20px;display:flex;align-items:center;gap:4px;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:1.5px solid var(--text-d);font-family:inherit;font-size:11px;font-weight:700;color:var(--text-d);cursor:pointer}
+/* WANT-TO-SING TOGGLE (red) */
+.want-btn{padding:6px 12px;border-radius:20px;display:flex;align-items:center;gap:4px;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:1.5px solid var(--accent);font-family:inherit;font-size:11px;font-weight:700;color:var(--accent);cursor:pointer}
 .want-btn:active{transform:scale(.95)}
 .want-btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .want-btn .material-symbols-rounded{font-size:16px}
 .want-btn.on .material-symbols-rounded{font-variation-settings:'FILL' 1}
 .bk-item.want-on{border-left:4px solid var(--accent);background:rgba(216,12,24,.04)}
 .bk-item.want-on .title{color:var(--accent)}
+/* KNOW = GREEN, WANT = RED in group */
+.grp-song-knower{background:rgba(52,168,83,.1);color:var(--growth);border-left-color:var(--growth)!important}
+.grp-song-knower.wants{background:rgba(216,12,24,.1);color:var(--accent);border-left-color:var(--accent)!important}
 
 /* APP BRAND */
 .app-brand{font-size:11px;color:var(--accent-l);font-weight:700;letter-spacing:0.05em;margin-bottom:-2px}
@@ -529,8 +532,8 @@ img{display:block;max-width:100%}
   min-height:48px;transition:transform .12s;
 }
 .sd-actions .btn:active{transform:scale(.97)}
-.btn-bookmark{background:var(--accent);color:#fff}
-.btn-bookmark.added{background:var(--growth)}
+.btn-bookmark{background:var(--growth);color:#fff}
+.btn-bookmark.added{background:var(--growth);opacity:.7}
 .btn-reserve{background:var(--cta);color:#fff;cursor:pointer}
 .btn-reserve.reserved{background:var(--growth)}
 
