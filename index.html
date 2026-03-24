@@ -3950,6 +3950,27 @@ function trackScreenChange(newScreen){
 
 // Fire session end on page unload
 window.addEventListener('beforeunload', logSessionEnd);
+
+// スマホの戻る操作でアプリ終了を防止
+history.pushState(null, '', location.href);
+window.addEventListener('popstate', ()=>{
+  if(cur==='home'){
+    if(confirm('\u30A2\u30D7\u30EA\u3092\u7D42\u4E86\u3057\u307E\u3059\u304B\uFF1F')){
+      logSessionEnd();
+      window.close();
+    }else{
+      history.pushState(null, '', location.href);
+    }
+  }else{
+    // ホーム以外なら前の画面に戻る
+    history.pushState(null, '', location.href);
+    if(cur==='song-detail'){
+      document.getElementById('sdBack').click();
+    }else{
+      go('home');
+    }
+  }
+});
 window.addEventListener('pagehide', logSessionEnd);
 
 /* ============================================
