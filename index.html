@@ -179,9 +179,9 @@ img{display:block;max-width:100%}
 .grp-song-knower.is-me{background:rgba(52,168,83,.18);color:#1B8A2E}
 .grp-song-knower.wants{background:rgba(216,12,24,.1);color:var(--accent)}
 .grp-song-count{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
-.grp-song-count.hot{background:var(--growth)}
-.grp-song-count.warm{background:var(--growth)}
-.grp-song-count.cold{background:var(--growth)}
+.grp-song-count.hot{background:#1B8A2E}
+.grp-song-count.warm{background:#34A853}
+.grp-song-count.cold{background:#8BC99B}
 /* ムードフィルター */
 .grp-mood-filter{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:none}
 .grp-mood-filter::-webkit-scrollbar{display:none}
@@ -4235,7 +4235,10 @@ function renderGrpSongList(styles){
               const memberWants=isMe?wantToSing.has(s.id):(member.wantIds||[]).includes(s.id);
               const label=isMe?'自分':displayName;
               const status=memberWants?' \u6B4C\u3044\u305F\u3044':' \u77E5\u3063\u3066\u308B';
-              return `<span class="grp-song-knower ${isMe?'is-me':''} ${memberWants?'wants':''}" style="border-left:3px solid ${st.color}">${st.emoji} ${label}${status}</span>`;
+              const greenShade=countClass==='hot'?'#1B8A2E':countClass==='warm'?'#34A853':'#8BC99B';
+              const greenBg=countClass==='hot'?'rgba(27,138,46,.15)':countClass==='warm'?'rgba(52,168,83,.1)':'rgba(139,201,155,.08)';
+              const tagStyle=memberWants?'':`background:${greenBg};color:${greenShade}`;
+              return `<span class="grp-song-knower ${isMe?'is-me':''} ${memberWants?'wants':''}" style="${tagStyle};border-left:3px solid ${memberWants?'var(--accent)':greenShade}">${st.emoji} ${label}${status}</span>`;
             }).join('')}
           </div>
         </div>
