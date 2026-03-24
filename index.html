@@ -95,11 +95,13 @@ img{display:block;max-width:100%}
 .bk-active-filters{padding:4px 16px;font-size:11px;color:var(--accent);min-height:18px}
 
 /* WANT-TO-SING TOGGLE */
-.want-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:2px solid var(--text-d)}
+.want-btn{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--card-hi);border:2px solid var(--text-d)}
 .want-btn:active{transform:scale(.9)}
 .want-btn.on{background:var(--accent);border-color:var(--accent)}
 .want-btn .material-symbols-rounded{font-size:20px;color:var(--text-d)}
 .want-btn.on .material-symbols-rounded{color:#fff;font-variation-settings:'FILL' 1}
+.bk-item.want-on{border-left:4px solid var(--accent);background:rgba(216,12,24,.04)}
+.bk-item.want-on .title{color:var(--accent)}
 
 /* APP BRAND */
 .app-brand{font-size:11px;color:var(--accent-l);font-weight:700;letter-spacing:0.05em;margin-bottom:-2px}
@@ -3580,9 +3582,9 @@ function renderBkList(){
     const dSing=dynamicSingability(s);
     const dCol=dSing>=80?'var(--growth)':dSing>=65?'var(--accent)':'var(--cta)';
     const isWant=wantToSing.has(b.id);
-    return `<div class="bk-item" data-bid="${b.id}">
+    return `<div class="bk-item ${isWant?'want-on':''}" data-bid="${b.id}">
       <div class="want-btn ${isWant?'on':''}" data-wid="${b.id}" title="\u6B4C\u3044\u305F\u3044">
-        <span class="material-symbols-rounded">mic</span>
+        <span class="material-symbols-rounded">${isWant?'check':'add'}</span>
       </div>
       <div class="bk-info">
         <div class="title">${s.t}</div>
@@ -4239,7 +4241,7 @@ function renderGrpSongList(styles){
               const isMe=uid===_userId;
               const memberWants=isMe?wantToSing.has(s.id):(member.wantIds||[]).includes(s.id);
               const label=isMe?'自分':displayName;
-              const status=memberWants?' 🎤歌いたい':' ✓知ってる';
+              const status=memberWants?' \u6B4C\u3044\u305F\u3044':' \u77E5\u3063\u3066\u308B';
               return `<span class="grp-song-knower ${isMe?'is-me':''} ${memberWants?'wants':''}" style="border-left:3px solid ${st.color}">${st.emoji} ${label}${status}</span>`;
             }).join('')}
           </div>
